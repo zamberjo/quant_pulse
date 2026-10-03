@@ -203,6 +203,44 @@ export const es: Messages = {
 			worstMonth: 'Peor mes'
 		}
 	},
+	contribution: {
+		heading: 'Mejor día para aportar',
+		intro: (months, from, to) =>
+			`Qué día del mes ha sido históricamente el más barato para invertir, según ${months} meses completos (${from}–${to}).`,
+		methodology:
+			'Cada día se compara con el cierre medio de su mes. Las aportaciones en días sin sesión se ejecutan en la siguiente sesión del mismo mes o en su última sesión. Los valores negativos son más baratos que la media del mes.',
+		empty:
+			'No hay meses completos en este periodo. Elige 3Y, 5Y, 10Y o MAX para comparar los días de aportación.',
+		lowSample: (months) =>
+			`Solo se han analizado ${months} meses. Elige un periodo más largo para obtener resultados más fiables.`,
+		day: (day) => `Día ${day}`,
+		bestDay: 'Día más barato',
+		worstDay: 'Día más caro',
+		spread: 'Mejor frente a peor',
+		dayCaption: (premium, share) =>
+			`${premium} frente a la media del mes · el más barato de su mes el ${share} de las veces.`,
+		spreadCaption: 'Diferencia media de precio entre el día más barato y el más caro.',
+		dayFormula:
+			'Media, en los meses completos, de (precio de ejecución ese día ÷ cierre medio del mes − 1).',
+		spreadFormula: 'Prima media del día más caro − prima media del día más barato.',
+		chartTitle: 'Precio frente a la media del mes por día del mes',
+		chartDescription:
+			'Gráfico de barras de la prima media de cada día del mes sobre el cierre medio del mes. Las barras más bajas indican días más baratos.',
+		chartTooltip: (day, months) => `Día ${day} · ${months} meses`,
+		unit: '% frente a la media del mes',
+		matrixHeading: 'Por mes del año',
+		matrixCaption:
+			'Prima media de cada día frente a la media de su mes, por mes natural a lo largo de los años',
+		month: 'Mes',
+		best: 'Mejor',
+		historyHeading: 'Año a año',
+		historyMonth: 'Mes a comparar',
+		historyCaption: (month) =>
+			`Prima de cada día de ${month} frente a la media de ese mes, por año`,
+		year: 'Año',
+		average: 'Media',
+		cheapestMarked: 'El día más barato de cada fila aparece recuadrado.'
+	},
 	errors: {
 		retry: 'Reintentar',
 		unavailable: {

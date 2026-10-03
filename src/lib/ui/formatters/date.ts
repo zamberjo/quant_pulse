@@ -43,6 +43,10 @@ export function formatMonth(year: number, month: number): string {
 	);
 }
 
+export function formatMonthName(month: number): string {
+	return formatter({ month: 'long', timeZone: 'UTC' }).format(utcDate(2024, month));
+}
+
 export function formatMonthShort(year: number, month: number): string {
 	const label = monthLabels()[month - 1] ?? '';
 	return `${label} ’${String(year).slice(-2)}`;

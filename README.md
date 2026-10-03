@@ -9,6 +9,7 @@ Institutional-grade analytics for stocks and ETFs: returns, risk and distributio
 - **Statistics tables:** trailing returns (1M–5Y, YTD), Calmar, drawdown episode dates and duration, VaR 99%, expected shortfall, skewness, excess kurtosis, and best/worst sessions and months.
 - **Bar charts (dependency-free SVG):** daily returns, monthly returns and weekday seasonality, with hover and arrow-key scrubbing.
 - **Monthly calendar:** a year × month returns heatmap with compounded yearly totals.
+- **Contribution timing:** finds which day of the month has historically been cheapest for a recurring contribution. Each day's execution price is compared with its month's average close, and orders on non-trading days execute at the next session. Shown overall (days 1–31), by month of the year, and year by year for any chosen month.
 - **Watchlist and recent tickers:** stored in `localStorage`. Deep links work, e.g. `/AAPL?range=5Y`.
 - **Loading:** a progress bar that follows the real loading stages, plus skeletons sized to the final layout so nothing shifts.
 - **English and Spanish:** the language follows the browser by default and can be switched in the header; the choice is remembered, and numbers and dates use the locale's format (`en-US` / `es-ES`).
@@ -99,6 +100,7 @@ All statistics use split- and dividend-adjusted daily closes with 252 trading da
 - **VaR:** the historical quantile, with linear interpolation.
 - **Expected shortfall:** the mean of returns at or below VaR.
 - **Monthly returns:** compounded from the prior month-end close.
+- **Contribution timing:** only complete months are used. A day's premium is its execution price ÷ the month's average close − 1. Orders scheduled for a non-trading or missing day (e.g. Feb 30) execute at the next session of the month, or at its last session.
 
 ## Disclaimer
 

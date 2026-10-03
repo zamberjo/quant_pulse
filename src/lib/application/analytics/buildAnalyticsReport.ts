@@ -1,6 +1,7 @@
 import type { PriceSeries } from '$lib/domain/entities/PriceSeries';
 import { InsufficientDataError } from '$lib/domain/errors/DomainError';
 import { daysBetween, toSessionDate, type SessionPoint } from '$lib/domain/services/calendar';
+import { analyzeContributionTiming } from '$lib/domain/services/ContributionTiming';
 import { describeDistribution, mean } from '$lib/domain/services/DistributionStats';
 import { analyzeDrawdowns } from '$lib/domain/services/DrawdownAnalyzer';
 import {
@@ -114,6 +115,7 @@ export function buildAnalyticsReport(
 		dailyReturns,
 		monthlyReturns: monthly,
 		calendar: calendarMatrix(monthly),
-		weekdays: weekdayAverages(returnPoints)
+		weekdays: weekdayAverages(returnPoints),
+		contribution: analyzeContributionTiming(points)
 	};
 }

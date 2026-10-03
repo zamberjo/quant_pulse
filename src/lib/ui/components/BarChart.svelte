@@ -17,9 +17,14 @@
 		description: string;
 		format: (value: number) => string;
 		height?: number;
+		invertTone?: boolean;
 	}
 
-	let { data, title, description, format, height = 224 }: Props = $props();
+	let { data, title, description, format, height = 224, invertTone = false }: Props = $props();
+
+	function favorable(value: number): boolean {
+		return invertTone ? value < 0 : value > 0;
+	}
 
 	const id = $props.id();
 	const margin = { top: 12, right: 8, bottom: 26, left: 56 };
@@ -122,7 +127,9 @@
 					{#each data as datum, index (datum.key)}
 						<path
 							d={barPath(x(index) + gap / 2, band - gap, y(0), y(datum.value), 4)}
-							class={datum.value >= 0 ? 'fill-positive' : 'fill-negative'}
+							class={datum.value === 0 || favorable(datum.value)
+								? 'fill-positive'
+								: 'fill-negative'}
 							opacity={activeIndex === null || activeIndex === index ? 1 : 0.45}
 						/>
 					{/each}
@@ -162,8 +169,8 @@
 				<div
 					class={[
 						'num font-semibold',
-						active.value > 0 && 'text-positive',
-						active.value < 0 && 'text-negative'
+						active.value !== 0 && favorable(active.value) && 'text-positive',
+						active.value !== 0 && !favorable(active.value) && 'text-negative'
 					]}
 				>
 					{format(active.value)}

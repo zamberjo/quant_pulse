@@ -1,5 +1,6 @@
 <script lang="ts">
 	import type { CalendarYear } from '$lib/domain/services/PeriodAggregator';
+	import { heatBackground, maxMagnitude } from '$lib/ui/charts/heat';
 	import { monthLabels } from '$lib/ui/formatters/date';
 	import { formatPercent } from '$lib/ui/formatters/number';
 	import { i18n } from '$lib/ui/i18n/i18n.svelte';
@@ -10,24 +11,8 @@
 
 	let { years }: Props = $props();
 
-	const MAX_TINT = 38;
-
 	const months = $derived(monthLabels());
-
-	const scale = $derived.by(() => {
-		let max = 0;
-		for (const year of years) {
-			for (const value of year.months) if (value !== null) max = Math.max(max, Math.abs(value));
-		}
-		return max || 1;
-	});
-
-	function tint(value: number | null): string | undefined {
-		if (value === null || value === 0) return undefined;
-		const strength = Math.round(Math.min(1, Math.abs(value) / scale) * MAX_TINT);
-		const color = value > 0 ? 'var(--color-positive)' : 'var(--color-negative)';
-		return `color-mix(in oklab, ${color} ${strength}%, transparent)`;
-	}
+	const scale = $derived(maxMagnitude(years.map((year) => year.months)));
 </script>
 
 <div class="panel overflow-x-auto">
@@ -62,7 +47,8 @@
 								'border-b border-line px-2 py-1.5 text-right num',
 								value === null && 'text-ink-muted/60'
 							]}
-							style:background-color={tint(value)}>{formatPercent(value, { digits: 1 })}</td
+							style:background-color={heatBackground(value, scale)}
+							>{formatPercent(value, { digits: 1 })}</td
 						>
 					{/each}
 					<td

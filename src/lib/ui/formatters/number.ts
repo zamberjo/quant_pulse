@@ -42,6 +42,18 @@ export function formatPercent(
 	);
 }
 
+/** Signed percentage points without the percent sign, for dense tables. */
+export function formatPoints(value: number | null | undefined, digits = 1): string {
+	if (value === null || value === undefined || !Number.isFinite(value)) return EMPTY;
+	return typographic(
+		formatter({
+			minimumFractionDigits: digits,
+			maximumFractionDigits: digits,
+			signDisplay: 'exceptZero'
+		}).format(value * 100)
+	);
+}
+
 export function formatDecimal(value: number | null | undefined, digits = 2): string {
 	if (value === null || value === undefined || !Number.isFinite(value)) return EMPTY;
 	return typographic(

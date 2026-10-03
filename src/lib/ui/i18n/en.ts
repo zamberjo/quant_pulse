@@ -200,6 +200,44 @@ export const en = {
 			worstMonth: 'Worst month'
 		}
 	},
+	contribution: {
+		heading: 'Contribution timing',
+		intro: (months: number, from: number, to: number) =>
+			`Which day of the month has historically been the cheapest to invest, based on ${months} complete months (${from}–${to}).`,
+		methodology:
+			'Each day is compared with the average close of its month. Contributions on non-trading days execute at the next session of the same month, or at its last session. Negative values are cheaper than the month average.',
+		empty:
+			'There are no complete months in this range. Choose 3Y, 5Y, 10Y or MAX to compare contribution days.',
+		lowSample: (months: number) =>
+			`Only ${months} months analyzed. Choose a longer range for more reliable results.`,
+		day: (day: number) => `Day ${day}`,
+		bestDay: 'Cheapest day',
+		worstDay: 'Most expensive day',
+		spread: 'Best vs worst',
+		dayCaption: (premium: string, share: string) =>
+			`${premium} vs month average · cheapest of its month ${share} of the time.`,
+		spreadCaption: 'Average price gap between the cheapest and the most expensive day.',
+		dayFormula:
+			'Mean over complete months of (execution price on that day ÷ average close of the month − 1).',
+		spreadFormula: 'Mean premium of the most expensive day − mean premium of the cheapest day.',
+		chartTitle: 'Price vs month average by day of the month',
+		chartDescription:
+			'Bar chart of the average premium of each day of the month over the month average close. Lower bars mark cheaper days.',
+		chartTooltip: (day: number, months: number) => `Day ${day} · ${months} months`,
+		unit: '% vs month average',
+		matrixHeading: 'By month of the year',
+		matrixCaption:
+			'Average premium of each day versus its month average, per calendar month across years',
+		month: 'Month',
+		best: 'Best',
+		historyHeading: 'Year by year',
+		historyMonth: 'Month to compare',
+		historyCaption: (month: string) =>
+			`Premium of each day of ${month} versus that month average, by year`,
+		year: 'Year',
+		average: 'Average',
+		cheapestMarked: 'The cheapest day of each row is outlined.'
+	},
 	errors: {
 		retry: 'Retry',
 		unavailable: {

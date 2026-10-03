@@ -73,6 +73,12 @@
 				props={{ report: analysis.report }}
 			/>
 			<LazySection
+				label={i18n.t.contribution.heading}
+				minHeight="56rem"
+				load={() => import('$lib/ui/sections/ContributionSection.svelte')}
+				props={{ report: analysis.report }}
+			/>
+			<LazySection
 				label={i18n.t.dashboard.statistics}
 				minHeight="48rem"
 				load={() => import('$lib/ui/sections/StatisticsSection.svelte')}

@@ -1,3 +1,4 @@
+import type { ContributionTiming } from '$lib/domain/services/ContributionTiming';
 import type { DrawdownEpisode } from '$lib/domain/services/DrawdownAnalyzer';
 import type {
 	CalendarYear,
@@ -57,4 +58,5 @@ export interface AnalyticsReport {
 	readonly monthlyReturns: readonly MonthlyReturn[];
 	readonly calendar: readonly CalendarYear[];
 	readonly weekdays: readonly WeekdayAverage[];
+	readonly contribution: ContributionTiming;
 }
