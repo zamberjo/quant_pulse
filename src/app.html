@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>QuantPulse — Institutional-Grade Security Analytics</title>
+		<meta
+			name="description"
+			content="QuantPulse delivers institutional-grade analytics for stocks and ETFs: returns, volatility, Sharpe and Sortino ratios, drawdowns, Value at Risk and monthly performance, computed instantly in your browser."
+		/>
+		<meta name="theme-color" content="#f8fafc" media="(prefers-color-scheme: light)" />
+		<meta name="theme-color" content="#020617" media="(prefers-color-scheme: dark)" />
+		<meta name="color-scheme" content="light dark" />
+		<link rel="canonical" href="%sveltekit.env.PUBLIC_SITE_URL%/" />
+		<link rel="icon" href="%sveltekit.assets%/favicon.svg" type="image/svg+xml" />
+		<link rel="manifest" href="%sveltekit.assets%/site.webmanifest" />
+		<meta property="og:type" content="website" />
+		<meta property="og:site_name" content="QuantPulse" />
+		<meta property="og:title" content="QuantPulse — Institutional-Grade Security Analytics" />
+		<meta
+			property="og:description"
+			content="Risk, return and distribution analytics for any stock or ETF, computed instantly in your browser."
+		/>
+		<meta property="og:url" content="%sveltekit.env.PUBLIC_SITE_URL%/" />
+		<meta property="og:image" content="%sveltekit.env.PUBLIC_SITE_URL%/og-image.png" />
+		<meta property="og:image:width" content="1200" />
+		<meta property="og:image:height" content="630" />
+		<meta property="og:image:alt" content="QuantPulse analytics dashboard" />
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content="QuantPulse — Institutional-Grade Security Analytics" />
+		<meta
+			name="twitter:description"
+			content="Risk, return and distribution analytics for any stock or ETF, computed instantly in your browser."
+		/>
+		<meta name="twitter:image" content="%sveltekit.env.PUBLIC_SITE_URL%/og-image.png" />
+		<script type="application/ld+json">
+			{
+				"@context": "https://schema.org",
+				"@type": "WebApplication",
+				"name": "QuantPulse",
+				"url": "%sveltekit.env.PUBLIC_SITE_URL%/",
+				"applicationCategory": "FinanceApplication",
+				"operatingSystem": "Any",
+				"browserRequirements": "Requires JavaScript",
+				"description": "Institutional-grade risk and return analytics for stocks and ETFs, computed client-side.",
+				"offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+			}
+		</script>
+		<script src="%sveltekit.assets%/theme-init.js"></script>
+		%sveltekit.head%
+	</head>
+	<body data-sveltekit-preload-data="hover">
+		<div class="contents">%sveltekit.body%</div>
+	</body>
+</html>

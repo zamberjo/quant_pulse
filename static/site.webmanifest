@@ -1,0 +1,10 @@
+{
+	"name": "QuantPulse",
+	"short_name": "QuantPulse",
+	"description": "Institutional-grade security analytics computed in your browser.",
+	"start_url": "/",
+	"display": "standalone",
+	"background_color": "#f8fafc",
+	"theme_color": "#0b1f3a",
+	"icons": [{ "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }]
+}
